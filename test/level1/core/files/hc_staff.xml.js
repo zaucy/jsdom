@@ -104,7 +104,6 @@ exports.hc_staff = function() {
   addresses[2].setAttribute("class", "No");
   addresses[2].appendChild(doc.createTextNode("PO Box 27 Irving, texas 98553"));
   names[2].appendChild(doc.createTextNode("Roger\n Jones")) ;
-  genders[2].appendChild(doc.createEntityReference("&delta;"));//Text("&delta;"));
   positions[2].appendChild(doc.createTextNode("Department Manager"));
 
   ids[3].appendChild(doc.createTextNode("EMP0004"));

@@ -13,12 +13,6 @@ exports.staff = function() {
   entElement.setAttribute("domestic", "Yes");
   entElement.appendChild(doc.createTextNode("Element data"));
   var procElement = doc.createProcessingInstruction("PItarget", "PfIdata");
-  var ent4 = doc.createEntityNode("ent4",entElement, procElement);
-
-  var ent5 = doc.createEntityNode("ent5");
-  ent5.publicId = "entityURI";
-  ent5.systemId = "entityFile";
-  ent5.notationName = "notation1";
 
   doc.doctype = new dom.DocumentType(doc, "staff");
 
@@ -75,9 +69,7 @@ exports.staff = function() {
 
   addresses[1].setAttribute("domestic", "Yes");
   addresses[1].setAttribute("street", "Yes");
-  addresses[1].appendChild(doc.createEntityReference("ent2"));
   addresses[1].appendChild(doc.createTextNode(" Dallas, "));
-  addresses[1].appendChild(doc.createEntityReference("ent3"));
   addresses[1].appendChild(doc.createTextNode("\n 98554"));
 
   names[1].appendChild(doc.createTextNode("Martha Raynolds"));
@@ -94,7 +86,6 @@ exports.staff = function() {
   addresses[2].setAttribute("street", "No");
   addresses[2].appendChild(doc.createTextNode("PO Box 27 Irving, texas 98553"));
   names[2].appendChild(doc.createTextNode("Roger\n Jones")) ;
-  genders[2].appendChild(doc.createEntityReference("ent4"));//Text("&ent4"));
   positions[2].appendChild(doc.createTextNode("Department Manager"));
 
 
