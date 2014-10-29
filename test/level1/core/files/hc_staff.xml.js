@@ -7,33 +7,7 @@ exports.hc_staff = function() {
     "XML" : "1.0"
   });
 
-  var notations = new dom.NotationNodeMap(
-    doc,
-    doc.createNotationNode("notation1","notation1File", null),
-    doc.createNotationNode("notation2",null, "notation2File")
-  );
-
-  // TODO: consider importing the master list of entities
-  //       http://www.w3schools.com/tags/ref_symbols.asp
-  var entities = new dom.EntityNodeMap(
-    doc,
-    doc.createEntityNode("alpha", doc.createTextNode("α")),
-    doc.createEntityNode("beta", doc.createTextNode("&#946;")),
-    doc.createEntityNode("gamma", doc.createTextNode("&#947;")),
-    doc.createEntityNode("delta", doc.createTextNode("&#948;")),
-    doc.createEntityNode("epsilon", doc.createTextNode("&#949;"))
-  );
-
-  // <!ATTLIST acronym dir CDATA "ltr">
-
-  var defaultAttributes = new dom.NamedNodeMap(doc);
-  var acronym = doc.createElement("acronym");
-  acronym.setAttribute("dir", "ltr");
-  defaultAttributes.setNamedItem(acronym);
-
-
-
-  var doctype = new dom.DocumentType(doc, "xml", entities, notations, defaultAttributes);
+  var doctype = new dom.DocumentType(doc, "xml");
   doc.doctype = doctype;
   doc.implementation = implementation;
 

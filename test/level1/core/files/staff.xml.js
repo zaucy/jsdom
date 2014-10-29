@@ -7,13 +7,6 @@ exports.staff = function() {
     "XML" : "1.0"
   });
 
-  var notations = new dom.NotationNodeMap(
-    doc,
-    doc.createNotationNode("notation1","notation1File", null),
-    doc.createNotationNode("notation2",null, "notation2File")
-  );
-
-
 
 //<entElement domestic='Yes'>Element data</entElement><?PItarget PIdata?>
   var entElement = doc.createElement("entElement");
@@ -27,26 +20,7 @@ exports.staff = function() {
   ent5.systemId = "entityFile";
   ent5.notationName = "notation1";
 
-  var entities = new dom.EntityNodeMap(
-    doc,
-    doc.createEntityNode("ent1", doc.createTextNode("es")),
-    doc.createEntityNode("ent2",doc.createTextNode("1900 Dallas Road")),
-    doc.createEntityNode("ent3",doc.createTextNode("Texas")),
-    ent4,
-    ent5
-  );
-
-  var defaultAttributes = new dom.NamedNodeMap(doc);
-  var entElement = doc.createElement("entElement");
-  entElement.setAttribute("attr1", "Attr");
-  entElement.setAttribute("domestic", "MALE");
-  defaultAttributes.setNamedItem(entElement);
-
-  var defaultAddress = doc.createElement("address");
-  defaultAddress.setAttribute("street", "Yes");
-  defaultAttributes.setNamedItem(defaultAddress);
-
-  doc.doctype = new dom.DocumentType(doc, "staff", entities, notations, defaultAttributes);
+  doc.doctype = new dom.DocumentType(doc, "staff");
 
   doc.implementation = implementation;
 
