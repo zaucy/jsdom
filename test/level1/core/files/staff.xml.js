@@ -102,8 +102,6 @@ exports.staff = function() {
   salaries[3].appendChild(doc.createTextNode("95,000"));
   addresses[3].setAttribute("domestic", "Yes");
   addresses[3].setAttribute("street", "Y");
-  var ent1Ref = doc.createEntityReference("ent1");
-  addresses[3].attributes.getNamedItem("street").appendChild(ent1Ref);
   addresses[3].appendChild(doc.createTextNode("27 South Road. Dallas, Texas 98556"));
   names[3].appendChild(doc.createTextNode("Jeny Oconnor"));
   genders[3].appendChild(doc.createTextNode("Female"));
