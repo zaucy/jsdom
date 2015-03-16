@@ -4,6 +4,7 @@ var fs = require('fs');
 var path = require('path');
 var request = require("request");
 var jsdom = require("../..");
+var fixFileUrl = require("../../lib/jsdom/utils").fixFileUrl;
 
 function createJsdom(source, url, t) {
   var input = source.replace(
@@ -67,8 +68,8 @@ function testUrl(url, t) {
         createJsdom(respBody, 'http://w3c-test.org/' + url, t);
       });
     } else {
-      file = file.replace(/\/resources\//gi, __dirname + '/tests/resources/');
-      createJsdom(file, path.resolve(__dirname, 'tests', url), t);
+      file = file.replace(/\/resources\//gi, fixFileUrl(__dirname) + '/tests/resources/');
+      createJsdom(file, fixFileUrl(path.resolve(__dirname, 'tests', url)), t);
     }
   });
 }
