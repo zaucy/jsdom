@@ -78,7 +78,7 @@ exports.tests = {
 
   jquerify_invalid: function (test) {
     test.expect(2);
-    jsdom.jQueryify(tmpWindow(), 1, function (window, jQuery) {
+    jsdom.jQueryify(jsdom.jsdom("", { url: "http://www.example.org" }).defaultView, 1, function (window, jQuery) {
       test.strictEqual(window.jQuery, undefined);
       test.strictEqual(jQuery, undefined);
       test.done();
